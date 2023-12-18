@@ -68,8 +68,19 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "devise", "~> 4.9"
+
+gem 'cancancan'
+
+gem 'pagy'
+
+gem 'rspec-rails'
+
+gem 'devise-jwt'
