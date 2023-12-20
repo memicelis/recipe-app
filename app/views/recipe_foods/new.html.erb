@@ -1,0 +1,21 @@
+<div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-semibold mb-4">Add Ingredient</h2>
+
+<%= form_with(model: [@recipe,RecipeFood.new], url: recipe_recipe_foods_path(@recipe), method: :post, class: "space-y-4") do |form| %>
+  <div class="flex flex-col">
+    <%= form.label :food_name, class: "mb-1 text-sm font-medium text-gray-600" %>
+    <%= form.select :food_id, current_user.foods.all.map{|food| [food.name, food.id]},{}%>
+  </div>
+
+  <div class="flex flex-col">
+    <%= form.label :quantity, class: "mb-1 text-sm font-medium text-gray-600" %>
+    <%= form.number_field :quantity, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", required: true %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Add Ingredient", class: "py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-700" %>
+  </div>
+<% end %>
+
+  <%= link_to 'Back to Recipe', recipe_path(@recipe), class: 'text-blue-500 hover:underline mt-2 inline-block' %>
+</div>
