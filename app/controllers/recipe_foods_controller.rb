@@ -18,8 +18,7 @@ class RecipeFoodsController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:recipe_id])
-    @food = @recipe.foods.find(params[:id])
-    @recipe_food = RecipeFood.find_by(recipe_id: @recipe.id, food_id: @food.id)
+    @recipe_food = @recipe.recipe_foods.find(params[:id])
 
     if @recipe_food
       @recipe_food.destroy
