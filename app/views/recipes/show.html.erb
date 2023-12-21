@@ -16,9 +16,8 @@
     </div>
   </div>
   <div class="flex justify-evenly">
-    <button class="py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-700">
-      Generate Shopping List
-    </button>
+    <%= link_to 'Generate Shopping List',shopping_lists_path(recipe_id: @recipe.id), class: 'py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-700' %>
+      
 
     <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class:'ml-4 py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-700' %>
   </div>
