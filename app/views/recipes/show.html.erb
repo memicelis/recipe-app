@@ -1,4 +1,4 @@
-<div class="p-4 bg-gray-100">
+<div class="p-4 bg-gray-100 mx-auto mb-4">
   <h1 class="font-bold text-4xl mb-4"><%= @recipe.name %></h1>
   <div class="flex">
     <div class="flex flex-col w-3/5">
@@ -7,12 +7,14 @@
       <p class="mb-4"><%= @recipe.description %></p>
     </div>
     <div class="w-2/5 items-center">
-      <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |form| %>
-  <label for="toggle-public" class="flex items-center cursor-pointer relative mb-4">
-    <%= form.check_box :public, class: "sr-only", id: "toggle-public", onchange: 'this.form.submit()' %>
-    <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
-    <span class="ml-3 text-gray-900 text-sm font-medium">Public</span>
-  </label>
+      <% if current_user.present? %>
+  <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |form| %>
+    <label for="toggle-public" class="flex items-center cursor-pointer relative mb-4">
+      <%= form.check_box :public, class: "sr-only", id: "toggle-public", onchange: 'this.form.submit()' %>
+      <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
+      <span class="ml-3 text-gray-900 text-sm font-medium">Public</span>
+    </label>
+  <% end %>
 <% end %>
 
     </div>
@@ -38,9 +40,11 @@
           <td class="py-2 px-4"><%= ingredient.food.name %></td>
           <td class="py-2 px-4"><%= ingredient.quantity %> <%= ingredient.food.measurement_unit %></td>
           <td class="py-2 px-4"><%= number_to_currency(ingredient.food.price * ingredient.quantity) %></td>
+          <% if current_user.present?%>
           <td class="py-2 px-4">
             <%= button_to "Delete", recipe_recipe_food_path(@recipe, ingredient), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "text-red-500 hover:underline" %>
           </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
