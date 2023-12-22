@@ -8,11 +8,13 @@
     </div>
     <div class="w-2/5 items-center">
       <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch) do |form| %>
-        <div class="flex flex-col items-center">
-          <%= form.label :public, class: "mb-1 text-sm font-medium text-gray-600" %>
-          <%= form.check_box :public, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", onclick: 'this.form.submit()', checked: @recipe.public %>
-        </div>
-      <% end %>
+  <label for="toggle-public" class="flex items-center cursor-pointer relative mb-4">
+    <%= form.check_box :public, class: "sr-only", id: "toggle-public", onchange: 'this.form.submit()' %>
+    <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
+    <span class="ml-3 text-gray-900 text-sm font-medium">Public</span>
+  </label>
+<% end %>
+
     </div>
   </div>
   <div class="flex justify-evenly">
