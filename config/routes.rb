@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'recipe_foods/new'
-  get 'recipe_foods/create'
-  get 'recipe_foods/destroy'
   devise_for :users
   root 'public_recipes#index'
 
