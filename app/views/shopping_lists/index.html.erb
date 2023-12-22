@@ -1,0 +1,32 @@
+<div class="p-4 flex flex-col w-screen mx-auto items-center">
+  
+  <h1 class="font-bold text-4xl mb-4">Shopping List</h1>
+  <div class="flex gap-10">
+  <h2 class="text-lg font-semibold mb-2">Total Food Items: <%= @total_food_items %></h2>
+  <h2 class="text-lg font-semibold mb-4">Total Price: <%= number_to_currency(@total_price) %></h2>
+  </div>
+  <table class="w-full border border-collapse">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="py-2 px-4 text-left">Food</th>
+        <th class="py-2 px-4 text-left">Quantity</th>
+        <th class="py-2 px-4 text-left">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% if @missing_food.present? %>
+      <% @missing_food.each do |ingredient| %>
+        <tr class="border-t">
+          <td class="py-2 px-4"><%= ingredient[:name] %></td>
+          <td class="py-2 px-4"><%= ingredient[:missing_quantity] %></td>
+          <td class="py-2 px-4"><%= number_to_currency(ingredient[:missing_price]) %></td>
+        </tr>
+      <% end %>
+      <% else %>
+    <tr>
+      <td colspan="2">No missing food items</td>
+    </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
