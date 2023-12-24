@@ -28,6 +28,6 @@ class ShoppingListsController < ApplicationController
 
     missing_quantity = ingredient.quantity - food.quantity
     missing_price = missing_quantity * food.price
-    missing_food << { name: food.name, missing_quantity:, missing_price: }
+    missing_food << { name: food.name, missing_quantity:, missing_price:, measurement_unit: food.measurement_unit }
   end
 end
