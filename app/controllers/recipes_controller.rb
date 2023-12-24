@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.build(recipe_params)
     puts "Received parameters: #{params.inspect}"
     if @recipe.save
-      redirect_to recipes_path(@recipe), notice: 'Recipe was succesfully added'
+      redirect_to recipe_path(@recipe), notice: 'Recipe was succesfully added'
     else
       render :new
     end

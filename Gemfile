@@ -84,3 +84,5 @@ gem 'pagy'
 gem 'rspec-rails'
 
 gem 'devise-jwt'
+
+gem 'rails-controller-testing'
