@@ -18,7 +18,7 @@
       <% @missing_food.each do |ingredient| %>
         <tr class="border-t">
           <td class="py-2 px-4"><%= ingredient[:name] %></td>
-          <td class="py-2 px-4"><%= ingredient[:missing_quantity] %></td>
+          <td class="py-2 px-4"><%= ingredient[:missing_quantity] %> <%= ingredient[:measurement_unit] %></td>
           <td class="py-2 px-4"><%= number_to_currency(ingredient[:missing_price]) %></td>
         </tr>
       <% end %>
