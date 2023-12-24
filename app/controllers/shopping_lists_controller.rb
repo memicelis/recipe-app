@@ -1,9 +1,9 @@
 class ShoppingListsController < ApplicationController
+  before_action :authenticate_user!
   def index
-    puts "Parameters: #{params.inspect}"
     @user = current_user
-    @recipe = Recipe.find(params[:recipe_id])
-    @recipe_foods = @recipe.recipe_foods
+    @recipes = Recipe.all
+    @recipe_foods = RecipeFood.includes(:food).where(recipe: @recipes)
     @all_food = Food.all
     @missing_food = find_missing_food_items(@recipe_foods, @all_food)
     @total_food_items = @missing_food.count
