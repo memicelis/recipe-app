@@ -26,7 +26,10 @@
 
     <div class="flex flex-col">
       <%= form.label :public, class: "mb-1 text-sm font-medium text-gray-600" %>
-      <%= form.check_box :public, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500" %>
+      <label for="toggle-public" class="flex items-center cursor-pointer relative mb-4">
+      <%= form.check_box :public, class: "sr-only", id: "toggle-public" %>
+      <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
+    </label>
     </div>
 
     <div class="mt-4">
