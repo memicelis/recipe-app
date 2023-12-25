@@ -13,20 +13,25 @@
         <th class="py-2 px-4 text-left">Price</th>
       </tr>
     </thead>
-    <tbody>
-    <% if @missing_food.present? %>
-      <% @missing_food.each do |ingredient| %>
-        <tr class="border-t">
-          <td class="py-2 px-4"><%= ingredient[:name] %></td>
-          <td class="py-2 px-4"><%= ingredient[:missing_quantity] %> <%= ingredient[:measurement_unit] %></td>
-          <td class="py-2 px-4"><%= number_to_currency(ingredient[:missing_price]) %></td>
-        </tr>
-      <% end %>
-      <% else %>
+   <tbody>
+  <% if @remaining_quantity.present? %>
+    <% @remaining_quantity.each do |name, ingredient| %>
+      <tr class="border-t">
+        <td class="py-2 px-4"><%= name %></td>
+        <td class="py-2 px-4"><%= ingredient[:remaining_quantity] %> <%= ingredient[:measurement_unit] %></td>
+        <td class="py-2 px-4"><%= number_to_currency(ingredient[:remaining_price]) %></td>
+      </tr>
+    <% end %>
+  <% else %>
     <tr>
-      <td colspan="2">No missing food items</td>
+      <td colspan="7">No missing food items</td>
     </tr>
   <% end %>
-    </tbody>
+</tbody>
+
+
+
+
+
   </table>
 </div>
