@@ -36,32 +36,25 @@ class ShoppingListsController < ApplicationController
     else
       shopping_quantity = ingredient.quantity
       shopping_price = shopping_quantity * food.price
-      shopping_food << { name: food.name, shopping_quantity: shopping_quantity, shopping_price: shopping_price, measurement_unit: food.measurement_unit }
+      shopping_food << { name: food.name, shopping_quantity:, shopping_price:,
+                         measurement_unit: food.measurement_unit }
     end
   end
 
   def calculate_remaining_quantity(all_food, shopping_food)
-  remaining_quantity = {}
+    remaining_quantity = {}
 
-  all_food.each do |food|
-    shopping_item = shopping_food.find { |item| item[:name] == food.name }
+    all_food.each do |food|
+      shopping_item = shopping_food.find { |item| item[:name] == food.name }
 
-    remaining_quantity[food.name] = {
-      remaining_quantity: shopping_item[:shopping_quantity] - food.quantity,
-      price: food.price,
-      measurement_unit: food.measurement_unit,
-      remaining_price: shopping_item[:shopping_quantity] - food.quantity * food.price
-    }
+      remaining_quantity[food.name] = {
+        remaining_quantity: shopping_item[:shopping_quantity] - food.quantity,
+        price: food.price,
+        measurement_unit: food.measurement_unit,
+        remaining_price: shopping_item[:shopping_quantity] - (food.quantity * food.price)
+      }
+    end
+
+    remaining_quantity.select { |_, data| (data[:remaining_quantity]).positive? }
   end
-
-  remaining_quantity.select { |_, data| data[:remaining_quantity] > 0 }
 end
-
-  
-  
-  
-end
-
-
-
-
