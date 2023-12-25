@@ -2,6 +2,15 @@
 # exit on error
 set -o errexit
 
+# Install dependencies
 bundle install
+yarn install # or npm install, depending on your project
+
+# Precompile assets
 ./bin/rails assets:precompile
-./bin/rails rake assets:clean
+
+# Run database migrations
+./bin/rails db:migrate
+
+# Clean up assets (remove old assets)
+./bin/rails assets:clean
