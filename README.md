@@ -24,7 +24,7 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Blog App] <a name="The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them."></a>
+# 📖 [Recipe App] <a name="The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them."></a>
 
 
 **[Blog App]** is based on Ruby Language and Rails framework.
@@ -56,7 +56,7 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[App for blog, create food and recipe post]**
+- **[App for recipes, foods lists, and generation of shopping lists]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,9 +118,7 @@ Run: rspec to run tests
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- [ ] **[Navigation Bar]**
-- [ ] **[Update recipes and food with shopping list]**
-- [ ] **[Toggle button to show as a public blog]**
+- [ ] **[Mobile screen view]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -141,7 +139,7 @@ If you like this project please follow me on github
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse and my Coding partner Enis Memic.
+I would like to thank Microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
