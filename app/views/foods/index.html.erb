@@ -1,0 +1,30 @@
+<div class="flex flex-col max-w-l mx-auto">
+<h2 class="text-2xl font-semibold mb-4">Food List</h2>
+
+<%= link_to "Add New Food", new_food_path, class: "bg-blue-500 text-white py-2 px-4 rounded mb-4 inline-block w-fit self-end" %>
+
+<table class="min-w-full divide-y divide-gray-200">
+  <thead>
+    <tr>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Food</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Measurement Unit</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Unit Price</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap"><%= food.name %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= food.measurement_unit %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= number_to_currency(food.price) %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= food.quantity %></td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <%= button_to "Delete", food_path(food), method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "text-red-500 hover:underline ml-2" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

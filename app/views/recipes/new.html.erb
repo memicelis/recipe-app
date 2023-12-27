@@ -1,0 +1,41 @@
+<div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-semibold mb-4">Add New Recipe</h2>
+
+  <%= form_with(model: @recipe, url: recipes_path, method: :post, class: "space-y-4") do |form| %>
+    <div class="flex flex-col">
+      <%= form.label :name, class: "mb-1 text-sm font-medium text-gray-600" %>
+      <%= form.text_field :name, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", required: true %>
+    </div>
+
+    <div class="flex flex-col">
+      <%= form.label :preparation_time, class: "mb-1 text-sm font-medium text-gray-600" %>
+      <%= form.number_field :preparation_time, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", required: true %>
+      <span class="text-gray-500">minutes</span>
+    </div>
+
+    <div class="flex flex-col">
+      <%= form.label :cooking_time, class: "mb-1 text-sm font-medium text-gray-600" %>
+      <%= form.number_field :cooking_time, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", required: true %>
+      <span class="text-gray-500">minutes</span>
+    </div>
+
+    <div class="flex flex-col">
+      <%= form.label :description, class: "mb-1 text-sm font-medium text-gray-600" %>
+      <%= form.text_area :description, class: "py-2 px-3 border rounded-md focus:outline-none focus:ring focus:border-blue-500", required: true %>
+    </div>
+
+    <div class="flex flex-col">
+      <%= form.label :public, class: "mb-1 text-sm font-medium text-gray-600" %>
+      <label for="toggle-public" class="flex items-center cursor-pointer relative mb-4">
+      <%= form.check_box :public, class: "sr-only", id: "toggle-public" %>
+      <div class="toggle-bg bg-gray-200 border-2 border-gray-200 h-6 w-11 rounded-full"></div>
+    </label>
+    </div>
+
+    <div class="mt-4">
+      <%= form.submit "Add Recipe", class: "py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-700" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Back to Recipe List", recipes_path, class: "text-blue-500 hover:underline mt-2 inline-block" %>
+</div>
